@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:recipe/domain/model/Recipe.dart';
 
 class RecipeList extends StatelessWidget {
-  final List<Recipe> recipeList;
+  List<Recipe> recipeList;
+  Function(Recipe) onRecipeSelected;
 
-  const RecipeList({Key key, this.recipeList}) : super(key: key);
+  RecipeList(List<Recipe> recipeList, Function(Recipe) onRecipeSelected) {
+    this.recipeList = recipeList;
+    this.onRecipeSelected = onRecipeSelected;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +23,19 @@ class RecipeList extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: Card(
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Image.network(
-                recipeList[index].featuredImage,
-                width: 200,
-                height: 200,
-                fit: BoxFit.scaleDown,
+            child: InkWell(
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Image.network(
+                  recipeList[index].featuredImage,
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.scaleDown,
+                ),
               ),
+              onTap: () {
+                onRecipeSelected(recipeList[index]);
+              },
             ),
           ),
         );

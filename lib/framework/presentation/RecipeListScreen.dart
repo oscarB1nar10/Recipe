@@ -1,10 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe/domain/model/FoodCategory.dart';
 import 'package:recipe/domain/model/Recipe.dart';
 import 'package:recipe/domain/states/Result.dart';
 import 'package:recipe/framework/presentation/RecipeBloc.dart';
-import 'package:recipe/framework/presentation/RecipeSelector.dart';
+import 'package:recipe/framework/presentation/RecipeDescriptionWidget.dart';
+import 'package:recipe/framework/presentation/RecipeSelectorWidget.dart';
 
 import 'ErrorHandleWidget.dart';
 import 'LoadingWidget.dart';
@@ -37,7 +40,7 @@ class _RecipeListScreen extends State<RecipeListScreen> {
           Container(
             constraints: BoxConstraints(
                 minHeight: 56, minWidth: double.infinity, maxHeight: 64),
-            child: RecipeSelector(onRecipeSelected),
+            child: RecipeSelectorWidget(onRecipeSelectedFromSelector),
           ),
           Expanded(
             child: StreamBuilder<Result<List<Recipe>>>(
@@ -49,7 +52,8 @@ class _RecipeListScreen extends State<RecipeListScreen> {
                       return Loading();
                       break;
                     case Status.COMPLETED:
-                      return RecipeList(recipeList: snapshot.data.data);
+                      return RecipeList(
+                          snapshot.data.data, onRecipeSelectedFromList);
                       break;
                     case Status.ERROR:
                       return ErrorHandleWidget(
@@ -68,9 +72,17 @@ class _RecipeListScreen extends State<RecipeListScreen> {
     );
   }
 
-  void onRecipeSelected(FoodCategory foodCategory) {
+  void onRecipeSelectedFromSelector(FoodCategory foodCategory) {
     _bloc.query = '${foodCategory.toString().split('.').last}';
     _bloc.searchRecipes();
+  }
+
+  void onRecipeSelectedFromList(Recipe recipe) {
+    log('Recipe selected: $recipe');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => RecipeDetailWidget(recipe)),
+    );
   }
 
   @override

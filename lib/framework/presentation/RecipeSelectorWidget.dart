@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/domain/model/FoodCategory.dart';
 
-class RecipeSelector extends StatelessWidget {
+class RecipeSelectorWidget extends StatelessWidget {
   final List<FoodCategory> foodCategoryList = getFoodCategories();
   Function(FoodCategory) onCustomButtonPressed;
 
-  RecipeSelector(Function(FoodCategory) onCustomButtonPressed) {
+  RecipeSelectorWidget(Function(FoodCategory) onCustomButtonPressed) {
     this.onCustomButtonPressed = onCustomButtonPressed;
   }
 
