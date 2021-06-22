@@ -13,6 +13,6 @@ class SearchRecipes {
     final recipeDtoList = RecipeSearchResponse.fromJson(response).recipes;
 
     return RecipeSearchResponseMapper()
-        .mapListOfEntityToMapOfDomainModel(recipeDtoList);
+        .mapListOfEntityToListOfDomainModel(recipeDtoList);
   }
 }

@@ -13,7 +13,7 @@ class RecipeBloc {
 
   StreamController _recipeListController;
 
-  StreamSink<Result<List<Recipe>>> get movieListSink =>
+  StreamSink<Result<List<Recipe>>> get recipeListSink =>
       _recipeListController.sink;
 
   Stream<Result<List<Recipe>>> get recipeListStream =>
@@ -26,13 +26,13 @@ class RecipeBloc {
   }
 
   searchRecipes() async {
-    movieListSink.add(Result.loading());
+    recipeListSink.add(Result.loading());
 
     try {
       List<Recipe> recipes = await _searchRecipes.search(page, query);
-      movieListSink.add(Result.completed(recipes));
+      recipeListSink.add(Result.completed(recipes));
     } catch (e) {
-      movieListSink.add(Result.error(e.toString()));
+      recipeListSink.add(Result.error(e.toString()));
     }
   }
 
