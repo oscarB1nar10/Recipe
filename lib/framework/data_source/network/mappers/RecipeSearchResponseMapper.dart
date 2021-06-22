@@ -39,7 +39,7 @@ class RecipeSearchResponseMapper implements EntityMapper<RecipeDto, Recipe> {
     return recipeDto;
   }
 
-  List<Recipe> mapListOfEntityToMapOfDomainModel(
+  List<Recipe> mapListOfEntityToListOfDomainModel(
       List<RecipeDto> recipeDtoList) {
     List<Recipe> recipeList = [];
     recipeDtoList.forEach((recipeDto) {

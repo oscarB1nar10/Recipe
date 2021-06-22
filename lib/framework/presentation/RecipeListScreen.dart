@@ -78,7 +78,6 @@ class _RecipeListScreen extends State<RecipeListScreen> {
   }
 
   void onRecipeSelectedFromList(Recipe recipe) {
-    log('Recipe selected: $recipe');
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => RecipeDetailWidget(recipe)),
