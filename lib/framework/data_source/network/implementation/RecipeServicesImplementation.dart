@@ -9,7 +9,7 @@ class RecipeServiceImpl implements RecipeServices {
   final String baseUrl = "food2fork.ca";
   final String token = "Token 9c8b06d329136da358c2d00e76946b0111ce2c48";
 
-  // Instance of http client to connection to the server
+  // Instance of http client to connection with the server
   Client httpClient = Client();
 
   @override
