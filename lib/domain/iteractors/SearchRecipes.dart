@@ -1,3 +1,4 @@
+import 'package:recipe/di/service_locator.dart';
 import 'package:recipe/domain/data/network/implementation/RecipeNetworkDataSourceImpl.dart';
 import 'package:recipe/domain/model/Recipe.dart';
 import 'package:recipe/framework/data_source/network/mappers/RecipeSearchResponseMapper.dart';
@@ -5,7 +6,7 @@ import 'package:recipe/framework/data_source/network/model/RecipeSearchResponse.
 
 class SearchRecipes {
   RecipeNetworkDataSourceImpl recipeNetworkDataSourceImpl =
-      RecipeNetworkDataSourceImpl();
+      sl.get<RecipeNetworkDataSourceImpl>();
 
   Future<List<Recipe>> search(int page, String query) async {
     final response = await recipeNetworkDataSourceImpl.search(page, query);

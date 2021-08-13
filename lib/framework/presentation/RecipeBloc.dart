@@ -1,12 +1,13 @@
 import 'dart:async';
 
+import 'package:recipe/di/service_locator.dart';
 import 'package:recipe/domain/iteractors/SearchRecipes.dart';
 import 'package:recipe/domain/model/Recipe.dart';
 import 'package:recipe/domain/states/Result.dart';
 
 class RecipeBloc {
   //Interactors
-  SearchRecipes _searchRecipes;
+  SearchRecipes _searchRecipes = sl.get<SearchRecipes>();
 
   var page = 1;
   var query = "Chicken";
@@ -21,7 +22,6 @@ class RecipeBloc {
 
   RecipeBloc() {
     _recipeListController = StreamController<Result<List<Recipe>>>();
-    _searchRecipes = SearchRecipes();// Class instance
     searchRecipes();// function call
   }
 

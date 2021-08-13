@@ -1,8 +1,9 @@
+import 'package:recipe/di/service_locator.dart';
 import 'package:recipe/domain/data/network/abstraction/RecipeNetworkDataSource.dart';
 import 'package:recipe/framework/data_source/network/implementation/RecipeServicesImplementation.dart';
 
 class RecipeNetworkDataSourceImpl implements RecipeNetworkDataSource {
-  RecipeServiceImpl recipeServiceImpl = new RecipeServiceImpl();
+  RecipeServiceImpl recipeServiceImpl = sl.get<RecipeServiceImpl>();
 
   @override
   Future<dynamic> get(int id) async {

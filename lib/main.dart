@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/framework/presentation/RecipeListScreen.dart';
 
+import 'di/service_locator.dart';
+
 void main() {
+  // setup the provider locator (get_it) so it be able to
+  // create the instances needed later
+  setup();
   runApp(MyApp());
 }
 

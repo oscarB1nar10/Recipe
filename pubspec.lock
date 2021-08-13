@@ -200,6 +200,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.9+1"
+  get_it:
+    dependency: "direct main"
+    description:
+      name: get_it
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.1.3"
   glob:
     dependency: transitive
     description:
@@ -242,20 +249,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.4"
-  inject:
-    dependency: "direct main"
-    description:
-      path: "injection/inject.dart/package/inject"
-      relative: true
-    source: path
-    version: "1.0.0-alpha"
-  inject_generator:
-    dependency: "direct dev"
-    description:
-      path: "injection/inject.dart/package/inject_generator"
-      relative: true
-    source: path
-    version: "1.0.0-alpha"
   intl:
     dependency: transitive
     description:
@@ -382,13 +375,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.8"
-  quiver:
-    dependency: transitive
-    description:
-      name: quiver
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.5"
   rxdart:
     dependency: "direct main"
     description:
@@ -507,4 +493,4 @@ packages:
     source: hosted
     version: "2.2.1"
 sdks:
-  dart: ">=2.12.0-0.0 <3.0.0"
+  dart: ">=2.12.0 <3.0.0"
