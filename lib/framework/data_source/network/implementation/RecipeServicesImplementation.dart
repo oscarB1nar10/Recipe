@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart';
+import 'package:recipe/di/service_locator.dart';
 import 'package:recipe/framework/data_source/network/abstraction/RecipeServices.dart';
 import 'package:recipe/framework/data_source/network/util/ApiExceptions.dart';
 
@@ -9,8 +10,8 @@ class RecipeServiceImpl implements RecipeServices {
   final String baseUrl = "food2fork.ca";
   final String token = "Token 9c8b06d329136da358c2d00e76946b0111ce2c48";
 
-  // Instance of http client to connection to the server
-  Client httpClient = Client();
+  // Instance of http client to connection with the server
+  Client httpClient = sl.get<Client>();
 
   @override
   Future<dynamic> get(int id) async {

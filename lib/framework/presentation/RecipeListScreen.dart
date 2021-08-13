@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recipe/di/service_locator.dart';
 import 'package:recipe/domain/model/FoodCategory.dart';
 import 'package:recipe/domain/model/Recipe.dart';
 import 'package:recipe/domain/states/Result.dart';
@@ -19,12 +18,11 @@ class RecipeListScreen extends StatefulWidget {
 }
 
 class _RecipeListScreen extends State<RecipeListScreen> {
-  RecipeBloc _bloc;
+  RecipeBloc _bloc = sl.get<RecipeBloc>();
 
   @override
   void initState() {
     super.initState();
-    _bloc = RecipeBloc();
   }
 
   @override
