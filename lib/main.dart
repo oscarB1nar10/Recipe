@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/framework/presentation/RecipeListScreen.dart';
 
-import 'di/service_locator.dart';
+import 'di/ServiceLocator.dart';
 
 void main() {
   // setup the provider locator (get_it) so it be able to

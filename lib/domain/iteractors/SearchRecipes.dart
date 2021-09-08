@@ -1,4 +1,4 @@
-import 'package:recipe/di/service_locator.dart';
+import 'package:recipe/di/ServiceLocator.dart';
 import 'package:recipe/domain/data/network/implementation/RecipeNetworkDataSourceImpl.dart';
 import 'package:recipe/domain/model/Recipe.dart';
 import 'package:recipe/framework/data_source/network/mappers/RecipeSearchResponseMapper.dart';
