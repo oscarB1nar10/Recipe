@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:recipe/di/service_locator.dart';
+import 'package:recipe/di/ServiceLocator.dart';
 import 'package:recipe/domain/iteractors/SearchRecipes.dart';
 import 'package:recipe/domain/model/Recipe.dart';
 import 'package:recipe/domain/states/Result.dart';

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart';
-import 'package:recipe/di/service_locator.dart';
+import 'package:recipe/di/ServiceLocator.dart';
 import 'package:recipe/framework/data_source/network/abstraction/RecipeServices.dart';
 import 'package:recipe/framework/data_source/network/util/ApiExceptions.dart';
 
